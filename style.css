@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap");
+
+:root {
+  --bg-color: #f7cfd8;
+  --btn-no-color: #ff204e;
+  --btn-no-hover: #b31536;
+  --btn-yes-color: #64ed6f;
+  --btn-yes-hover: #429e4a;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+.main-title {
+  font-family: "Noto Sans Mono", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+
+.group-btn {
+  /*   background-color: ; */
+  color: white;
+  margin: auto;
+  width: 100%;
+  padding: 0;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  font-size: 1.25rem;
+  border-radius: 4px;
+  border-width: 0;
+  padding: 0.5em;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn.yes {
+  background-color: var(--btn-yes-color);
+  margin-right: 1rem;
+  font-family: "Noto Sans Mono", serif;
+}
+
+.btn.yes:hover {
+  background-color: var(--btn-yes-hover);
+}
+
+.btn.no {
+  background-color: var(--btn-no-color);
+  margin-left: 1rem;
+  font-family: "Noto Sans Mono", serif;
+}
+
+.btn.no:hover {
+  background-color: var(--btn-no-hover);
+}
