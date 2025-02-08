@@ -1,24 +1,69 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Hmm</title>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <h1 class="main-title">Are you sure?</h1>
-    <div class="group-btn">
-      <button class="btn yes">có đi chứ</button>
-      <button class="btn no">k đi</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Hmm</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="main-title">
+      Bạn vừa trúng 1 vé tham dự kỷ yếu lớp 12A5 VX-HĐ. <br />
+      Bạn có muốn tham dự không?
+    </h1>
+    <div class="group-btn active">
+      <button class="btn yes">Bú bú</button>
+      <button class="btn no">Chê nha</button>
     </div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="/script.js"></script>
-  </body>
+    <div class="form">
+      <input type="text" name="name" id="form-name" placeholder="Nhập tên để đăng xuất" required>
+      <button class="btn form-submit">Đăng kí</button>
+    </div>
+
+
+    <div id="popup">
+      <div class="overlay"></div>
+      <div class="content">
+        <div class="close-btn">&times;</div>
+        <div class="envelop">
+          <p class="message">
+            <span class="special-t">Thư Mời Kỷ Yếu</span>
+            <br /> <br />
+            Cho gọi: <span class="username rainbow rainbow_text_animated"></span>
+            <br /> <br />
+            Hãy cùng trẫm tham gia buổi lễ kỷ yếu của lớp trẫm và các quan đại thần để ghi lại những khoảnh khắc đáng
+            nhớ!
+            Trẫm rất mong sự hiện diện của khanh để cùng nhau chia sẻ những kỷ niệm đẹp.
+            <br /> <br />
+            - Thời gian: <span class="rainbow rainbow_text_animated">09/02/2025</span> vào lúc <span
+              class="rainbow rainbow_text_animated">9:00 A.M.</span>
+            <br />
+            - Địa điểm: THPT Vạn Xuân - Hoài Đức
+            <br /> <br />
+            Hoan nghênh các khanh góp tiền xây nhà cho trẫm.
+            <br /> <br />
+            P/S: -50k trong tài khoản <span class="rainbow rainbow_text_animated">2345678910JQKA</span>
+            <br /> <br />
+            Trân trọng, 12A5
+          </p>
+
+          <img class="photo" src="/img/thiep-moi.jpg" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="/script.js"></script>
+
+</body>
+
 </html>

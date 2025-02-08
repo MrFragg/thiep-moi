@@ -2,11 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap");
 
 :root {
-  --bg-color: #f7cfd8;
+  --bg-color: #7cc1fd;
   --btn-no-color: #ff204e;
   --btn-no-hover: #b31536;
-  --btn-yes-color: #64ed6f;
+  --btn-yes-color: #75fa80;
   --btn-yes-hover: #429e4a;
+  --bg-letter: #000000ad;
+  --fg-letter: #c9c9c9;
+  --form-border: #5e5c5c;
+
+  --border-rds: 8px;
 }
 
 body {
@@ -15,13 +20,12 @@ body {
 
 .main-title {
   font-family: "Noto Sans Mono", serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   text-align: center;
 }
 
-.group-btn {
-  /*   background-color: ; */
+.group-btn.active {
   color: white;
   margin: auto;
   width: 100%;
@@ -31,11 +35,17 @@ body {
   justify-content: center;
 }
 
+.group-btn {
+  display: none;
+}
+
 .btn {
   font-size: 1.25rem;
-  border-radius: 4px;
+  border-radius: var(--border-rds);
   border-width: 0;
-  padding: 0.5em;
+  padding: 0.5em 0.75em;
+  font-family: "Noto Sans Mono", serif;
+  transition: background-color 0.15s cubic-bezier(0.45, 0, 0.55, 1);
 }
 
 .btn:hover {
@@ -45,7 +55,7 @@ body {
 .btn.yes {
   background-color: var(--btn-yes-color);
   margin-right: 1rem;
-  font-family: "Noto Sans Mono", serif;
+
 }
 
 .btn.yes:hover {
@@ -55,9 +65,199 @@ body {
 .btn.no {
   background-color: var(--btn-no-color);
   margin-left: 1rem;
-  font-family: "Noto Sans Mono", serif;
 }
 
 .btn.no:hover {
   background-color: var(--btn-no-hover);
+}
+
+.form {
+  display: none;
+}
+
+.form.active {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+#form-name {
+  border: solid 1px var(--form-border);
+  border-radius: var(--border-rds);
+  padding: 5px 10px;
+  width: 15%;
+  margin-right: 1.5rem;
+  font-family: "Noto Sans Mono", serif;
+  font-size: 20px;
+}
+
+.btn.form-submit:hover {
+  background-color: var(--btn-yes-color);
+}
+
+#popup .overlay {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.555);
+  z-index: 9;
+}
+
+#popup .content {
+  display: grid;
+  position: absolute;
+  gap: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: var(--bg-letter);
+  z-index: 10;
+  width: 87%;
+  height: 90%;
+  padding: 15px 40px;
+  font-size: 1.15em;
+  justify-items: end;
+  border-radius: 10px;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+
+  /* Hide scrollbar for Safari */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for other browsers */
+  scrollbar-width: none;
+}
+
+#popup .envelop {
+  display: flex;
+}
+
+#popup .envelop .photo {
+  height: 80vh;
+}
+
+#popup .close-btn {
+  cursor: pointer;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+#popup .message {
+  font-family: "Noto Sans Mono", serif;
+  color: var(--fg-letter);
+  padding: 0% 5%;
+}
+
+#popup .message .special-t {
+  font-family: "Noto Sans Mono", serif;
+  font-size: 2em;
+}
+
+#popup .message .heart {
+  font-family: "Noto Sans Mono", serif;
+  color: var(--fg-heart);
+}
+
+#popup .message .heart.boy {
+  font-size: 1.35em;
+}
+
+
+#popup.active .overlay {
+  display: block;
+}
+
+#popup.active .content {
+  transition: all 0.8s ease-in-out;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.rainbow {
+  text-align: center;
+  font-weight: bold;
+}
+
+.rainbow_text_animated {
+  background: linear-gradient(to right, #e3ff66, #0099ff, #00ff00, #ff3399, #6666ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow_animation 6s ease-in-out infinite;
+  background-size: 400% 100%;
+}
+
+@keyframes rainbow_animation {
+
+  0%,
+  100% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-title {
+    font-size: medium;
+  }
+
+  .btn {
+    font-size: small;
+    width: 75px;
+  }
+
+  .form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #form-name {
+    width: 80vw;
+    font-size: small;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  #popup .message {
+    padding: 0% 4px;
+  }
+
+  #popup .content {
+    font-size: 1em;
+    border-radius: 6px;
+  }
+
+  #popup .message .close-btn {
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+  }
+
+  #popup .message .special-t {
+    font-size: 1.25em;
+  }
+
+  #popup .envelop {
+    display: block;
+  }
+
+  #popup .envelop .photo {
+    width: 85vw;
+    height: auto;
+  }
 }
